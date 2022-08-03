@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {
@@ -22,13 +21,13 @@ function NavBar ({ navigations, text }) {
   return (
     <Navbar full={true}>
       <h4>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link href="/dashboard">Dashboard</Link>
       </h4>
       {text && (<NavbarText className="ms-4">{text}</NavbarText>)}
       <Nav className="me-auto" navbar>
         {navigations.map(a => 
           <NavItem>
-            <Link to={a.link}>
+            <Link href={a.link}>
               {a.text}
             </Link>
           </NavItem>

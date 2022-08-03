@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { 
   CardBody, 
@@ -11,7 +10,7 @@ import {
   ListGroup, 
   ListGroupItem 
 } from "reactstrap"
-import { auth } from '../firebase'
+import { auth } from 'utils/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Profile from 'components/Profile'
 import NavBar from 'components/NavBar'
@@ -42,7 +41,7 @@ function Dashboard() {
                 </CardTitle>
                 <ListGroup>
                   <ListGroupItem>
-                    <Link to="/game/rock-paper-sisccors">Rock Paper Scissors</Link>
+                    {/* <Link href="/game/rock-paper-sisccors">Rock Paper Scissors</Link> */}
                   </ListGroupItem>
                 </ListGroup>
               </CardBody>
