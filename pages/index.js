@@ -1,6 +1,21 @@
+import Link from 'next/link'
+import { Card, CardBody, CardTitle, Row } from "reactstrap"
 
-export default function Home() {
+function Home () {
   return (
-    <h1>Hello</h1>
+      <Row className="justify-content-center  align-items-center">
+        <Card>
+           <CardBody>
+              <CardTitle tag="h5" className="warning">
+                Home
+              </CardTitle>
+              <Link href="/login">login</Link>
+              <br></br>
+              <Link href="/register">register</Link>
+          </CardBody>
+        </Card>
+      </Row>
   )
 }
+
+export default Home
