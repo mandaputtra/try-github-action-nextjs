@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from '../utils/firebase'
+import { auth, logInWithEmailAndPassword, signInWithGoogle } from 'utils/firebase'
 import { 
   Button, 
   Card, 
