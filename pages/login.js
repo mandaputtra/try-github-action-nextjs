@@ -1,40 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useAuthState } from "react-firebase-hooks/auth"
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from 'utils/firebase'
-import { 
-  Button, 
-  Card, 
-  CardBody, 
-  CardSubtitle, 
-  CardTitle, 
-  Form, 
-  FormGroup, 
-  Input, 
-  Label, 
-  Row 
-} from "reactstrap"
+import {
+  Button,
+  Card,
+  CardBody,
+  CardSubtitle,
+  CardTitle,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row
+} from 'reactstrap'
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login () {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const [user, loading] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth)
 
-  const router = useRouter();
+  const router = useRouter()
 
-  async function login() {
+  async function login () {
     await logInWithEmailAndPassword(email, password)
   }
 
   useEffect(() => {
     if (loading) {
-      return;
+      return
     }
-    if (user) router.push("/dashboard");
-  }, [user, loading]);
-
+    if (user) router.push('/dashboard')
+  }, [user, loading])
 
   return (
       <Row className="justify-content-center  align-items-center">

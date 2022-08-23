@@ -5,15 +5,14 @@ import {
   Nav,
   NavItem,
   Button,
-  NavbarText,
-} from 'reactstrap';
+  NavbarText
+} from 'reactstrap'
 import { logout as logoutFirebase } from 'utils/firebase'
 
 function NavBar ({ navigations, text }) {
-
   const router = useRouter()
 
-  function logout() {
+  function logout () {
     logoutFirebase()
     router.push('/')
   }
@@ -25,7 +24,7 @@ function NavBar ({ navigations, text }) {
       </h4>
       {text && (<NavbarText className="ms-4">{text}</NavbarText>)}
       <Nav className="me-auto" navbar>
-        {navigations.map(a => 
+        {navigations.map(a =>
           <NavItem>
             <Link href={a.link}>
               {a.text}
@@ -37,7 +36,7 @@ function NavBar ({ navigations, text }) {
         Log Out
       </Button>
     </Navbar>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

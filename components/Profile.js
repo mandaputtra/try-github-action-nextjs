@@ -1,44 +1,40 @@
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage"
-import { useEffect, useState } from "react"
-import { Card, CardBody, CardText, CardTitle, Col, Form, FormGroup, ListGroup, ListGroupItem, Row } from "reactstrap"
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { useEffect, useState } from 'react'
+import { Card, CardBody, CardText, CardTitle, Col, Form, FormGroup, ListGroup, ListGroupItem, Row } from 'reactstrap'
 import { storage, updatePhotoProfile, getUser } from 'utils/firebase'
-
 
 function Profile ({ user }) {
   const [userData, setUserData] = useState()
 
-  async function reloadData() {
+  async function reloadData () {
     if (user?.uid) {
       const data = await getUser(user.uid)
       setUserData(data)
     }
   }
 
-
   useEffect(() => {
-    async function fetchData() {
+    async function fetchData () {
       await reloadData()
     }
     fetchData()
   }, [user])
 
-
   function handleFireBaseUpload (imageAsFile) {
     if (imageAsFile === '') {
-      console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
+      console.error(`not an image, the image file is a ${typeof (imageAsFile)}`)
     }
 
-    const storageRef = ref(storage, `files/${imageAsFile.name}`);
+    const storageRef = ref(storage, `files/${imageAsFile.name}`)
     // Upload dokumen
-    const uploadTask = uploadBytesResumable(storageRef, imageAsFile);
+    const uploadTask = uploadBytesResumable(storageRef, imageAsFile)
     // Proses upload dokumen
-    uploadTask.on('state_changed', 
+    uploadTask.on('state_changed',
       () => {
         // console.info(snapShot)
       }, (err) => {
         console.error(err)
       }, async () => {
-
         // Ambil foto url
         const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref)
         // update foto profil
@@ -46,9 +42,9 @@ function Profile ({ user }) {
         // reload user data, agar foto profil langsung muncul
         await reloadData()
       })
-    }
+  }
 
-  function handleImageAsFile(e) {
+  function handleImageAsFile (e) {
     const image = e.target.files[0]
     handleFireBaseUpload(image)
   }

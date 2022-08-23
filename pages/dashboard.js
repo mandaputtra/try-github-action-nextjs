@@ -1,22 +1,22 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { 
-  CardBody, 
-  CardTitle, 
-  Col, 
-  Row, 
-  Container, 
-  Card, 
-  ListGroup, 
-  ListGroupItem 
-} from "reactstrap"
+import {
+  CardBody,
+  CardTitle,
+  Col,
+  Row,
+  Container,
+  Card,
+  ListGroup,
+  ListGroupItem
+} from 'reactstrap'
 import { auth } from 'utils/firebase'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Profile from 'components/Profile'
 import NavBar from 'components/NavBar'
 
-function Dashboard() {
-  const [user] = useAuthState(auth);
+function Dashboard () {
+  const [user] = useAuthState(auth)
   const router = useRouter()
 
   useEffect(() => {

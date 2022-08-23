@@ -1,20 +1,20 @@
-import { Button, Card, CardBody, CardSubtitle, CardTitle, Form, FormGroup, Input, Label, Row, Alert } from "reactstrap"
+import { Button, Card, CardBody, CardSubtitle, CardTitle, Form, FormGroup, Input, Label, Row, Alert } from 'reactstrap'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { registerWithEmailAndPassword } from 'utils/firebase'
-import { useState } from "react";
+import { useState } from 'react'
 
-function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+function Register () {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
   const [success, setSuccess] = useState(false)
-  const router = useRouter();
+  const router = useRouter()
 
-  async function register(e) {
+  async function register (e) {
     e.preventDefault()
-    if (!name) alert("Please enter name");
-    await registerWithEmailAndPassword(name, email, password);
+    if (!name) alert('Please enter name')
+    await registerWithEmailAndPassword(name, email, password)
     setSuccess(true)
     setTimeout(() => {
       router.push('/login')
@@ -37,7 +37,7 @@ function Register() {
                 <Form>
                   <FormGroup>
                     <Label>Name</Label>
-                    <Input id="name" onChange={e =>  setName(e.target.value)} value={name} placeholder="please input your name" type="text" />
+                    <Input id="name" onChange={e => setName(e.target.value)} value={name} placeholder="please input your name" type="text" />
                   </FormGroup>
                   <FormGroup>
                     <Label>Email</Label>
