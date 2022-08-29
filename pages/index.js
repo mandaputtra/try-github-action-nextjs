@@ -7,7 +7,7 @@ function Home () {
         <Card>
            <CardBody>
               <CardTitle tag="h5" className="warning">
-                Homepage, our super app!!!
+                Halaman Utama nih gaaesss!!!
               </CardTitle>
               <Link href="/login">login</Link>
               <br></br>
