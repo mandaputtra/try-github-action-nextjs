@@ -24,8 +24,8 @@ function NavBar ({ navigations, text }) {
       </h4>
       {text && (<NavbarText className="ms-4">{text}</NavbarText>)}
       <Nav className="me-auto" navbar>
-        {navigations.map(a =>
-          <NavItem>
+        {navigations.map((a, index) =>
+          <NavItem key={index}>
             <Link href={a.link}>
               {a.text}
             </Link>
